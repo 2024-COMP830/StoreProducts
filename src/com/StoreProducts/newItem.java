@@ -31,7 +31,7 @@ public class newItem {
 
             try {
                 double priceValue = Double.parseDouble(price);
-                Item item = new Item(name, priceValue, "default.png");
+                Item item = new Item(0, name, priceValue, "default.png");
                 itemDAO.addItem(item);
                 JOptionPane.showMessageDialog(null, "Item added successfully!");
                 frame.dispose();

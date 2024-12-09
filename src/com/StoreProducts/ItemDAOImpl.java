@@ -61,7 +61,12 @@ public class ItemDAOImpl implements ItemDAO {
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                items.add(new Item(rs.getString("name"), rs.getDouble("price"), rs.getString("pic")));
+                items.add(new Item(
+                    rs.getInt("item_id"),
+                    rs.getString("name"),
+                    rs.getDouble("price"),
+                    rs.getString("pic")
+                ));
             }
 
         } catch (SQLException e) {
@@ -69,4 +74,6 @@ public class ItemDAOImpl implements ItemDAO {
         }
         return items;
     }
+
+
 }

@@ -24,25 +24,12 @@ public class Admin extends Account {
         JPanel panel = new JPanel(new GridLayout(5, 1, 20, 20));
 
         JButton showMenu = Main.button("Show Menu");
-        showMenu.addActionListener(e -> {
-            StringBuilder menuItems = new StringBuilder();
-            itemDAO.getAllItems().forEach(item -> menuItems.append(item.getItemName())
-                    .append(" - ").append(item.getPrice()).append(" $\n"));
-            JOptionPane.showMessageDialog(null, menuItems.toString().isEmpty() ? "No items in the menu!" : menuItems);
-        });
+        showMenu.addActionListener(e -> new MenuPage(true));
         panel.add(showMenu);
 
         JButton addItem = Main.button("Add New Item");
         addItem.addActionListener(e -> new newItem());
         panel.add(addItem);
-
-        JButton editItem = Main.button("Edit Item");
-        editItem.addActionListener(e -> new editItem());
-        panel.add(editItem);
-
-        JButton deleteItem = Main.button("Delete Item");
-        deleteItem.addActionListener(e -> new delItem());
-        panel.add(deleteItem);
 
         JButton logout = Main.button("Logout");
         logout.addActionListener(e -> {

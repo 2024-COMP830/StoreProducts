@@ -20,6 +20,7 @@ public class AccountDAOImpl implements AccountDAO {
             pstmt.setString(3, account.getEmail());
             pstmt.setString(4, account.getPassword());
             pstmt.setString(5, account instanceof Admin ? "Admin" : "Guest");
+
             pstmt.executeUpdate();
 
         } catch (SQLException e) {

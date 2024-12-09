@@ -7,7 +7,7 @@ public class editItem {
 
     private final ItemDAO itemDAO;
 
-    public editItem() {
+    public editItem(Item item) {
         itemDAO = new ItemDAOImpl();
 
         JFrame frame = new JFrame("Edit Item");
@@ -21,23 +21,29 @@ public class editItem {
 
         JLabel idLabel = Main.label("Item ID:");
         JTextField idField = Main.textField();
-        JLabel nameLabel = Main.label("New Name:");
+        idField.setText(String.valueOf(item.getItemId()));
+        idField.setEditable(false);
+
+        JLabel nameLabel = Main.label("Item Name:");
         JTextField nameField = Main.textField();
-        JLabel priceLabel = Main.label("New Price:");
+        nameField.setText(item.getItemName());
+
+        JLabel priceLabel = Main.label("Price:");
         JTextField priceField = Main.textField();
+        priceField.setText(String.valueOf(item.getPrice()));
 
         JButton saveButton = Main.button("Save");
         saveButton.addActionListener(e -> {
             try {
-                int id = Integer.parseInt(idField.getText());
-                String name = nameField.getText();
-                double price = Double.parseDouble(priceField.getText());
+                String newName = nameField.getText();
+                double newPrice = Double.parseDouble(priceField.getText());
 
-                itemDAO.editItem(id, name, price);
-                JOptionPane.showMessageDialog(null, "Item updated successfully!");
+                itemDAO.editItem(item.getItemId(), newName, newPrice);
+                JOptionPane.showMessageDialog(frame, "Item updated successfully!");
                 frame.dispose();
+                new MenuPage(true);
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Invalid input!");
+                JOptionPane.showMessageDialog(frame, "Invalid input!");
             }
         });
 
