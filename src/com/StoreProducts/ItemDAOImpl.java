@@ -53,6 +53,30 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
+    public Item getItemById(int id) {
+        String sql = "SELECT * FROM Items WHERE item_id = ?;";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return new Item(
+                        rs.getInt("item_id"),
+                        rs.getString("name"),
+                        rs.getDouble("price"),
+                        rs.getString("pic")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public List<Item> getAllItems() {
         List<Item> items = new ArrayList<>();
         String sql = "SELECT * FROM Items;";
@@ -74,6 +98,4 @@ public class ItemDAOImpl implements ItemDAO {
         }
         return items;
     }
-
-
 }

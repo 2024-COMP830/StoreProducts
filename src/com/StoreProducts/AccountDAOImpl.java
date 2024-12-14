@@ -82,4 +82,38 @@ public class AccountDAOImpl implements AccountDAO {
         }
         return accounts;
     }
+
+    @Override
+    public void updateAccount(Account account) {
+        String sql = """
+            UPDATE Accounts SET name = ?, email = ?, password = ? WHERE phone_number = ?;
+        """;
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, account.getName());
+            pstmt.setString(2, account.getEmail());
+            pstmt.setString(3, account.getPassword());
+            pstmt.setLong(4, account.getPhonenumber());
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteAccount(long phoneNumber) {
+        String sql = "DELETE FROM Accounts WHERE phone_number = ?;";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setLong(1, phoneNumber);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

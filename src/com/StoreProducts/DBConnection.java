@@ -47,8 +47,20 @@ public class DBConnection {
                         pic TEXT
                     );
                 """;
+                String cartTable = """
+                    CREATE TABLE IF NOT EXISTS Cart (
+                        cart_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        account_id INTEGER NOT NULL,
+                        item_id INTEGER NOT NULL,
+                        added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        FOREIGN KEY (account_id) REFERENCES Accounts(account_id),
+                        FOREIGN KEY (item_id) REFERENCES Items(item_id)
+                    );
+                """;
+
                 stmt.execute(accountsTable);
                 stmt.execute(itemsTable);
+                stmt.execute(cartTable);
             }
         } catch (SQLException e) {
             e.printStackTrace();
