@@ -111,21 +111,20 @@ Table Cart {
 ---
 
 ## Screenshots
-Add screenshots of your application for:
 - Login Page
-  ![Login Page](images/login.png "Login Page Screenshot")
+- ![Login Page](images/login.png "Login Page Screenshot")
 - Admin Dashboard
-  ![Admin Dashboard Page](images/admin_dashboard.png "Admin Dashboard Screenshot")
+- ![Admin Dashboard Page](images/admin_dashboard.png "Admin Dashboard Screenshot")
 - Guest Dashboard
-  ![Guest Dashboard Page](images/guest_dashboard.png "Guest  Dashboard Screenshot")
+- ![Guest Dashboard Page](images/guest_dashboard.png "Guest  Dashboard Screenshot")
 - Admin Menu Management Page
-  ![Admin Menu Management Page](images/admin_menu_management.png "Admin Menu Management Screenshot")
+- ![Admin Menu Management Page](images/admin_menu_management.png "Admin Menu Management Screenshot")
 - Guest Menu Management Page
-  ![Guest Menu Management Page](images/guest_menu_management.png "Guest Menu Management Screenshot")
+- ![Guest Menu Management Page](images/guest_menu_management.png "Guest Menu Management Screenshot")
 - Guest Cart Page
-  ![Guest Cart Page](images/guest_cart.png "Guest Cart Screenshot")
+- ![Guest Cart Page](images/guest_cart.png "Guest Cart Screenshot")
 - Guest Cart Summary Page
-  ![Guest Cart Summary Page](images/guest_cart_summary.png "Guest Cart Summary Screenshot")
+- ![Guest Cart Summary Page](images/guest_cart_summary.png "Guest Cart Summary Screenshot")
 
 ---
 
